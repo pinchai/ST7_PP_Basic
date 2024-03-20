@@ -3,7 +3,10 @@ import time
 from datetime import date
 
 bot_toked = "6822761867:AAH93Lsc1UXam18RH6mUXiK0QM8JPaEeu_w"
-chat_id = "@st7_pp_notify"
+# chat_id = "@st7_pp_notify"
+# chat_id = "@st7_pp_notity"
+chat_id = "756357473"
+chat_id_list = ['1096082261', '756357473']
 
 html = (
     "<strong>INVOICE NUMBER: {inv_no}</strong>\n"
@@ -21,5 +24,9 @@ html = (
     date=date.today(),
 )
 
-res = requests.get(f"https://api.telegram.org/bot{bot_toked}/sendMessage?chat_id={chat_id}&text={html}&parse_mode=HTML")
-print(res)
+for acc_id in chat_id_list:
+    res = requests.get(f"https://api.telegram.org/bot{bot_toked}/sendMessage?chat_id={acc_id}&text={html}&parse_mode=HTML")
+    print(res)
+    time.sleep(10)
+
+
